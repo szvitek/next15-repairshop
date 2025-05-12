@@ -2,6 +2,7 @@ import React from 'react';
 import {getCustomer} from "@/lib/queries/getCustomer";
 import BackButton from "@/components/custom/BackButton";
 import * as Sentry from "@sentry/nextjs";
+import CustomerForm from "@/app/(rs)/customers/form/CustomerForm";
 
 type Props = {
     searchParams: Promise<{ [key: string]: string | undefined }>
@@ -25,8 +26,10 @@ async function CustomerFormPage({searchParams}: Props) {
             }
             console.log(customer);
             // put customer form component
+            return <CustomerForm customer={customer}/>;
         } else {
             // new customer form component
+            return <CustomerForm/>
         }
 
 
